@@ -97,7 +97,7 @@ export function AnalyticsView() {
                         <div className="font-medium">{d.dept}</div>
                         <div className="mt-1 h-1 w-24 overflow-hidden rounded-full bg-muted"><div className="h-full bg-primary" style={{ width: `${(d.gross / total) * 100 * 2.4}%` }} /></div>
                       </td>
-                      <td className={`${td} text-right font-medium tabular`}>{formatINRCompact(d.gross)}</td>
+                      <td className={`${td} whitespace-nowrap text-right font-medium tabular`}>{formatINRCompact(d.gross)}</td>
                       <td className={`${td} text-right tabular text-muted-foreground`}>{d.headcount}</td>
                       <td className={`${td} text-right tabular`}>{formatINR(Math.round(d.avg))}</td>
                       <td className={`${td} text-right tabular text-muted-foreground`}>{formatINRCompact(d.overtime)}</td>

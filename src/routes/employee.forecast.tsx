@@ -59,7 +59,7 @@ function ForecastPage() {
       <div className="mb-4 grid grid-cols-2 gap-4 lg:grid-cols-4">
         <MiniStat label="Current net (Sep)" value={formatINR(current.net)} sub="Includes ₹15,000 bonus" tone="primary" />
         <MiniStat label="12-month average" value={formatINR(avg)} sub="Oct 25 – Sep 26" tone="neutral" />
-        <MiniStat label="Estimated October" value={<span className="text-xl">{formatINR(next.low)} – {formatINR(next.high)}</span>} sub={`Most likely ~${formatINR(next.mid)}`} tone="success" />
+        <MiniStat label="Estimated October" value={<span className="text-lg">{formatINR(next.low)} – {formatINR(next.high)}</span>} sub={`Most likely ~${formatINR(next.mid)}`} tone="success" />
         <MiniStat label="Confidence" value="Moderate" sub="Overtime is the main source of variance" tone="warning" />
       </div>
 
