@@ -44,7 +44,7 @@ export const navigation: Record<Role, NavGroup[]> = {
     },
   ],
   employee: [
-    { label: "Overview", items: [{ title: "Financial Dashboard", slug: "dashboard", icon: LayoutDashboard }, { title: "My Profile", slug: "profile", icon: UserCircle }] },
+    { label: "Overview", items: [{ title: "Dashboard", slug: "dashboard", icon: LayoutDashboard }, { title: "Financial Dashboard", slug: "financial", icon: LineChart }, { title: "My Profile", slug: "profile", icon: UserCircle }] },
     { label: "Time", items: [{ title: "Attendance", slug: "attendance", icon: CalendarCheck }, { title: "Leave", slug: "leave", icon: Plane }] },
     {
       label: "Pay",
@@ -55,6 +55,7 @@ export const navigation: Record<Role, NavGroup[]> = {
         { title: "Salary Forecast", slug: "forecast", icon: PiggyBank },
       ],
     },
+    { label: "Help", items: [{ title: "AI Assistant", slug: "assistant", icon: Sparkles }] },
   ],
   management: [
     {
