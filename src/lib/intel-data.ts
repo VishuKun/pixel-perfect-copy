@@ -88,5 +88,5 @@ export const salaryHistory = [
   { month: "Oct 25", net: 128400 }, { month: "Nov 25", net: 126900 }, { month: "Dec 25", net: 131200 },
   { month: "Jan 26", net: 127600 }, { month: "Feb 26", net: 127600 }, { month: "Mar 26", net: 142300 },
   { month: "Apr 26", net: 139500 }, { month: "May 26", net: 140100 }, { month: "Jun 26", net: 139800 },
-  { month: "Jul 26", net: 141600 }, { month: "Aug 26", net: 148370 }, { month: "Sep 26", net: 167257 },
+  { month: "Jul 26", net: 141600 }, { month: "Aug 26", net: 152470 }, { month: "Sep 26", net: 166507 },
 ];

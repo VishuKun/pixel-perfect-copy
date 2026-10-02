@@ -15,7 +15,7 @@ export const Route = createFileRoute("/employee/forecast")({
 });
 
 // Transparent mock model
-const baseNet = 148370;          // regular monthly net (no bonus/OT)
+const baseNet = 149900;          // regular monthly net (no bonus/OT)
 const otAvg = 6400;              // 6-mo average overtime (net of tax ≈ 80%)
 const otVar = 5600;              // observed OT swing
 const taxRegimeShift = -1200;    // TDS true-up expected in Q3
