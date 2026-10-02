@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MoreHorizontal, Pencil, Plus, Download, Eye, UserCheck, Users, UserPlus, Clock } from "lucide-react";
+import { MoreHorizontal, Pencil, Plus, Download, Eye } from "lucide-react";
 import { toast } from "sonner";
 import { AppShell, PageHeader } from "@/components/layout/AppShell";
 import { Button } from "@/components/ui/button";
@@ -107,5 +107,3 @@ function EmployeesPage() {
     </AppShell>
   );
 }
-
-export const _icons = { UserCheck, Users, UserPlus, Clock };
