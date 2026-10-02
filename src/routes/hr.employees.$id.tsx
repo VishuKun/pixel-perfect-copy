@@ -35,7 +35,7 @@ const dayCls: Record<AttendanceStatus, string> = {
 
 function ProfilePage() {
   const { index } = Route.useLoaderData();
-  const [emp, setEmp] = useState<Employee>(employees[index]);
+  const [emp, setEmp] = useState<Employee>(employees[index]!);
   const [editing, setEditing] = useState(false);
   const s = computeSalary(emp.monthlyGross);
   const days = getAttendance(index, 2026, 8);

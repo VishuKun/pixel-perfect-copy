@@ -187,7 +187,7 @@ export type PayrollRowStatus = "Paid" | "Processed" | "Pending" | "On Hold";
 export type PayrollRow = { employee: Employee; breakdown: SalaryBreakdown; status: PayrollRowStatus; paidDays: number; workingDays: number; month: string };
 
 export function getPayroll(month: string): PayrollRow[] {
-  const m = payrollMonths.find((p) => p.value === month) ?? payrollMonths[0];
+  const m = payrollMonths.find((p) => p.value === month) ?? payrollMonths[0]!;
   const mi = Number(month.slice(5)) ;
   return employees.map((e, i) => {
     const r = rng(i * 19 + mi);

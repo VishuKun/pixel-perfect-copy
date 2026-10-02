@@ -28,7 +28,7 @@ const cellCls: Record<AttendanceStatus, string> = {
 const cycle: AttendanceStatus[] = ["P", "H", "L", "A"];
 
 function AttendancePage() {
-  const [month, setMonth] = useState(attendanceMonths[0].value);
+  const [month, setMonth] = useState(attendanceMonths[0]!.value);
   const [q, setQ] = useState("");
   const [dept, setDept] = useState("all");
   const [emp, setEmp] = useState("all");
@@ -51,7 +51,7 @@ function AttendancePage() {
 
   const toggle = (empId: string, di: number, cur: AttendanceStatus) => {
     if (cur === "W") return;
-    const next = cycle[(cycle.indexOf(cur) + 1) % cycle.length];
+    const next = cycle[(cycle.indexOf(cur) + 1) % cycle.length]!;
     setOverrides((o) => ({ ...o, [`${month}|${empId}|${di}`]: next }));
   };
 
@@ -113,7 +113,7 @@ function AttendancePage() {
 
       <MarkDialog open={markOpen} onOpenChange={setMarkOpen} daysInMonth={daysInMonth} monthLabel={m.label}
         onSave={(ids, day, status) => {
-          setOverrides((o) => { const n = { ...o }; ids.forEach((id) => { n[`${month}|${id}|${day - 1}`] = status; }); return n; });
+          setOverrides((o) => { const n: Record<string, AttendanceStatus> = { ...o }; ids.forEach((id) => { n[`${month}|${id}|${day - 1}`] = status; }); return n; });
           toast.success("Attendance marked", { description: `${ids.length} employee(s) · ${day} ${m.label} · ${attendanceLabels[status]}` });
           setMarkOpen(false);
         }} />

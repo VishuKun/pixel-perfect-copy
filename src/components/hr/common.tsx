@@ -17,7 +17,7 @@ const toneCls: Record<Tone, string> = {
   neutral: "bg-muted text-muted-foreground",
 };
 
-export function StatusPill({ tone, children }: { tone: Tone; children: ReactNode }) {
+export function StatusPill({ tone = "neutral", children }: { tone?: Tone | undefined; children: ReactNode }) {
   return (
     <span className={cn("inline-flex items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-0.5 text-[11px] font-semibold", toneCls[tone])}>
       <span className="h-1.5 w-1.5 rounded-full bg-current" />
@@ -26,7 +26,7 @@ export function StatusPill({ tone, children }: { tone: Tone; children: ReactNode
   );
 }
 
-export const statusTone: Record<string, Tone> = {
+export const statusTone: Record<string, Tone> & { [k: string]: Tone } = {
   Active: "success", Probation: "primary", "On Leave": "warning", "Notice Period": "critical",
   Approved: "success", Pending: "warning", Rejected: "critical",
   Paid: "success", Processed: "primary", "On Hold": "critical", "In review": "warning",

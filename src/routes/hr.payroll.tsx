@@ -23,7 +23,7 @@ export const Route = createFileRoute("/hr/payroll")({
 });
 
 function PayrollPage() {
-  const [month, setMonth] = useState(payrollMonths[0].value);
+  const [month, setMonth] = useState(payrollMonths[0]!.value);
   const [q, setQ] = useState("");
   const [dept, setDept] = useState("all");
   const [status, setStatus] = useState("all");

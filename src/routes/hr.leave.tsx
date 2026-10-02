@@ -26,7 +26,7 @@ const fmt = (d: string) => new Date(d).toLocaleDateString("en-IN", { day: "numer
 function LeavePage() {
   const [list, setList] = useState<LeaveRequest[]>(leaveRequests);
   const [tab, setTab] = useState<"all" | LeaveStatus>("Pending");
-  const [balEmp, setBalEmp] = useState(employees[0].id);
+  const [balEmp, setBalEmp] = useState(employees[0]!.id);
 
   const act = (id: string, status: LeaveStatus) => {
     setList((l) => l.map((r) => (r.id === id ? { ...r, status } : r)));
