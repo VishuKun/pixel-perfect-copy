@@ -17,6 +17,8 @@ const toneCls: Record<Tone, string> = {
   neutral: "bg-muted text-muted-foreground",
 };
 
+const dotCls: Record<Tone, string> = { success: "bg-success", warning: "bg-warning", critical: "bg-destructive", primary: "bg-primary", neutral: "bg-muted-foreground" };
+
 export function StatusPill({ tone = "neutral", children }: { tone?: Tone | undefined; children: ReactNode }) {
   return (
     <span className={cn("inline-flex items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-0.5 text-[11px] font-semibold", toneCls[tone])}>
@@ -94,7 +96,7 @@ export function MiniStat({ label, value, sub, tone = "neutral" }: { label: strin
   return (
     <div className="rounded-xl border bg-card p-4">
       <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-        <span className={cn("h-2 w-2 rounded-full", tone === "neutral" ? "bg-muted-foreground" : toneCls[tone].split(" ")[1]!.replace("text-", "bg-"))} />
+        <span className={cn("h-2 w-2 rounded-full", dotCls[tone])} />
         {label}
       </div>
       <div className="mt-2 text-2xl font-bold tracking-tight tabular">{value}</div>

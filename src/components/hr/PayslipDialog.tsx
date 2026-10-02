@@ -23,7 +23,7 @@ export function Payslip({ row }: { row: PayrollRow }) {
 
   return (
     <div>
-      <div className="flex items-start justify-between gap-4 border-b pb-4">
+      <div className="flex flex-wrap items-start justify-between gap-4 border-b pb-4 pr-8">
         <div className="flex items-center gap-2.5">
           <div className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground"><Workflow className="h-4 w-4" /></div>
           <div>

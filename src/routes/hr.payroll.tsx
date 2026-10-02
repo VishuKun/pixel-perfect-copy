@@ -46,7 +46,7 @@ function PayrollPage() {
         </>} />
 
       <div className="mb-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px]">
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4">
           <MiniStat label="Gross payroll" value={formatINRCompact(sum("gross"))} sub="Before deductions" tone="primary" />
           <MiniStat label="Total deductions" value={formatINRCompact(sum("deductions"))} sub="PF · PT · TDS · other" tone="warning" />
           <MiniStat label="Net payout" value={formatINRCompact(sum("net"))} sub="To be disbursed" tone="success" />
