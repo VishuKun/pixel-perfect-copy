@@ -94,7 +94,7 @@ export function MiniStat({ label, value, sub, tone = "neutral" }: { label: strin
   return (
     <div className="rounded-xl border bg-card p-4">
       <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-        <span className={cn("h-2 w-2 rounded-full", tone === "neutral" ? "bg-muted-foreground" : toneCls[tone].split(" ")[1].replace("text-", "bg-"))} />
+        <span className={cn("h-2 w-2 rounded-full", tone === "neutral" ? "bg-muted-foreground" : toneCls[tone].split(" ")[1]!.replace("text-", "bg-"))} />
         {label}
       </div>
       <div className="mt-2 text-2xl font-bold tracking-tight tabular">{value}</div>
@@ -110,7 +110,7 @@ export function EmptyRow({ cols, text }: { cols: number; text: string }) {
 /* ---------------- Employee add / edit dialog ---------------- */
 
 export function EmployeeFormDialog({ open, onOpenChange, employee, onSave }: {
-  open: boolean; onOpenChange: (o: boolean) => void; employee?: Employee; onSave: (e: Partial<Employee>) => void;
+  open: boolean; onOpenChange: (o: boolean) => void; employee?: Employee | undefined; onSave: (e: Partial<Employee>) => void;
 }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -121,7 +121,7 @@ export function EmployeeFormDialog({ open, onOpenChange, employee, onSave }: {
   );
 }
 
-function EmployeeForm({ employee, onCancel, onSave }: { employee?: Employee; onCancel: () => void; onSave: (e: Partial<Employee>) => void }) {
+function EmployeeForm({ employee, onCancel, onSave }: { employee?: Employee | undefined; onCancel: () => void; onSave: (e: Partial<Employee>) => void }) {
   const [f, setF] = useState<Partial<Employee>>(employee ?? { dept: "Engineering", status: "Probation", type: "Full-time", location: "Bengaluru", grade: "L3" });
   const set = <K extends keyof Employee>(k: K, v: Employee[K]) => setF((p) => ({ ...p, [k]: v }));
   const valid = (f.name ?? "").trim().length > 1 && /\S+@\S+\.\S+/.test(f.email ?? "") && (f.monthlyGross ?? 0) > 0;

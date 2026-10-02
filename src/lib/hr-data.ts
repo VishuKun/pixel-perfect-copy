@@ -68,11 +68,11 @@ export const employees: Employee[] = seedRows.map(([name, dept, designation, gra
     phone: `+91 9${Math.floor(r() * 1e9).toString().padStart(9, "0")}`,
     type: i % 9 === 8 ? "Contract" : "Full-time",
     joinDate: `${year}-${String(month).padStart(2, "0")}-${String(1 + Math.floor(r() * 27)).padStart(2, "0")}`,
-    location: locations[i % locations.length],
+    location: locations[i % locations.length]!,
     manager: managers[dept] === name ? "Sanjay Gupta" : managers[dept],
     monthlyGross: gross,
     pan: `${String.fromCharCode(65 + (i % 26))}${"BCDPQ"[i % 5]}${"KLMNP"[i % 5]}P${String.fromCharCode(65 + ((i * 3) % 26))}${4000 + i * 13}${String.fromCharCode(70 + (i % 10))}`,
-    bank: `${banks[i % banks.length]} ••${String(1000 + Math.floor(r() * 8999))}`,
+    bank: `${banks[i % banks.length]!} ••${String(1000 + Math.floor(r() * 8999))}`,
   };
 });
 
@@ -155,16 +155,16 @@ export type LeaveStatus = "Pending" | "Approved" | "Rejected";
 export type LeaveRequest = { id: string; empId: string; type: string; from: string; to: string; days: number; reason: string; applied: string; status: LeaveStatus };
 
 export const leaveRequests: LeaveRequest[] = [
-  { id: "LV-3312", empId: employees[5].id, type: "Casual Leave", from: "2026-10-05", to: "2026-10-06", days: 2, reason: "Family function in Kochi", applied: "2026-09-29", status: "Pending" },
-  { id: "LV-3311", empId: employees[0].id, type: "Earned Leave", from: "2026-10-12", to: "2026-10-16", days: 5, reason: "Vacation — Goa", applied: "2026-09-28", status: "Pending" },
-  { id: "LV-3310", empId: employees[13].id, type: "Sick Leave", from: "2026-09-30", to: "2026-09-30", days: 1, reason: "Fever", applied: "2026-09-30", status: "Pending" },
-  { id: "LV-3309", empId: employees[21].id, type: "Casual Leave", from: "2026-10-02", to: "2026-10-02", days: 1, reason: "Personal work", applied: "2026-09-27", status: "Pending" },
-  { id: "LV-3308", empId: employees[9].id, type: "Earned Leave", from: "2026-10-20", to: "2026-10-24", days: 5, reason: "Diwali travel to Kolkata", applied: "2026-09-26", status: "Pending" },
-  { id: "LV-3307", empId: employees[4].id, type: "Maternity/Paternity", from: "2026-09-15", to: "2026-10-14", days: 30, reason: "Paternity leave", applied: "2026-08-30", status: "Approved" },
-  { id: "LV-3306", empId: employees[11].id, type: "Casual Leave", from: "2026-09-22", to: "2026-09-22", days: 1, reason: "Bank work", applied: "2026-09-19", status: "Approved" },
-  { id: "LV-3305", empId: employees[16].id, type: "Earned Leave", from: "2026-09-25", to: "2026-09-30", days: 4, reason: "Serving notice — personal", applied: "2026-09-18", status: "Rejected" },
-  { id: "LV-3304", empId: employees[2].id, type: "Sick Leave", from: "2026-09-17", to: "2026-09-18", days: 2, reason: "Viral infection", applied: "2026-09-17", status: "Approved" },
-  { id: "LV-3303", empId: employees[18].id, type: "Casual Leave", from: "2026-09-12", to: "2026-09-12", days: 1, reason: "Moving house", applied: "2026-09-08", status: "Approved" },
+  { id: "LV-3312", empId: employees[5]!.id, type: "Casual Leave", from: "2026-10-05", to: "2026-10-06", days: 2, reason: "Family function in Kochi", applied: "2026-09-29", status: "Pending" },
+  { id: "LV-3311", empId: employees[0]!.id, type: "Earned Leave", from: "2026-10-12", to: "2026-10-16", days: 5, reason: "Vacation — Goa", applied: "2026-09-28", status: "Pending" },
+  { id: "LV-3310", empId: employees[13]!.id, type: "Sick Leave", from: "2026-09-30", to: "2026-09-30", days: 1, reason: "Fever", applied: "2026-09-30", status: "Pending" },
+  { id: "LV-3309", empId: employees[21]!.id, type: "Casual Leave", from: "2026-10-02", to: "2026-10-02", days: 1, reason: "Personal work", applied: "2026-09-27", status: "Pending" },
+  { id: "LV-3308", empId: employees[9]!.id, type: "Earned Leave", from: "2026-10-20", to: "2026-10-24", days: 5, reason: "Diwali travel to Kolkata", applied: "2026-09-26", status: "Pending" },
+  { id: "LV-3307", empId: employees[4]!.id, type: "Maternity/Paternity", from: "2026-09-15", to: "2026-10-14", days: 30, reason: "Paternity leave", applied: "2026-08-30", status: "Approved" },
+  { id: "LV-3306", empId: employees[11]!.id, type: "Casual Leave", from: "2026-09-22", to: "2026-09-22", days: 1, reason: "Bank work", applied: "2026-09-19", status: "Approved" },
+  { id: "LV-3305", empId: employees[16]!.id, type: "Earned Leave", from: "2026-09-25", to: "2026-09-30", days: 4, reason: "Serving notice — personal", applied: "2026-09-18", status: "Rejected" },
+  { id: "LV-3304", empId: employees[2]!.id, type: "Sick Leave", from: "2026-09-17", to: "2026-09-18", days: 2, reason: "Viral infection", applied: "2026-09-17", status: "Approved" },
+  { id: "LV-3303", empId: employees[18]!.id, type: "Casual Leave", from: "2026-09-12", to: "2026-09-12", days: 1, reason: "Moving house", applied: "2026-09-08", status: "Approved" },
 ];
 
 export const leaveBalanceFor = (i: number) => [
