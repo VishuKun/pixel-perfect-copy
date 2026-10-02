@@ -90,3 +90,19 @@ export const salaryHistory = [
   { month: "Apr 26", net: 139500 }, { month: "May 26", net: 140100 }, { month: "Jun 26", net: 139800 },
   { month: "Jul 26", net: 141600 }, { month: "Aug 26", net: 152470 }, { month: "Sep 26", net: 166507 },
 ];
+
+/* ---------------- Employee monthly ledger (Rahul Verma) ---------------- */
+// Derived from verified payslip records (mock). Deductions = PF + PT + TDS + other.
+export const employeeLedger = salaryHistory.map((h, i) => {
+  const isLast = i === salaryHistory.length - 1, isPrev = i === salaryHistory.length - 2;
+  const pf = 1800, pt = 200, other = isLast ? 1750 : 1250;
+  const tax = isLast ? 29610 : isPrev ? 25480 : Math.round((h.net + pf + pt + other) * 0.16 / 0.84);
+  const gross = h.net + pf + pt + other + tax;
+  return { month: h.month, gross, net: h.net, pf, pt, tax, other, deductions: gross - h.net };
+});
+
+export const employeeAlerts = [
+  { title: "1 day Loss of Pay applied", desc: "11 Sep · leave applied after cut-off · −₹5,933", severity: "warning" as const },
+  { title: "Submit investment proofs", desc: "Due 15 Jan to avoid higher TDS in Q4", severity: "info" as const },
+  { title: "September payslip available", desc: "Credited 30 Sep to HDFC ••4649", severity: "success" as const },
+];

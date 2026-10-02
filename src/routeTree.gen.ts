@@ -11,10 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RolePageRouteImport } from './routes/$role.$page'
+import { Route as EmployeeAssistantRouteImport } from './routes/employee.assistant'
+import { Route as EmployeeDashboardRouteImport } from './routes/employee.dashboard'
 import { Route as EmployeeExplanationRouteImport } from './routes/employee.explanation'
+import { Route as EmployeeFinancialRouteImport } from './routes/employee.financial'
 import { Route as EmployeeForecastRouteImport } from './routes/employee.forecast'
 import { Route as HrAnalyticsRouteImport } from './routes/hr.analytics'
 import { Route as HrAnomaliesRouteImport } from './routes/hr.anomalies'
+import { Route as HrAssistantRouteImport } from './routes/hr.assistant'
 import { Route as HrAttendanceRouteImport } from './routes/hr.attendance'
 import { Route as HrLeaveRouteImport } from './routes/hr.leave'
 import { Route as HrPayrollRouteImport } from './routes/hr.payroll'
@@ -35,9 +39,24 @@ const RolePageRoute = RolePageRouteImport.update({
   path: '/$role/$page',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmployeeAssistantRoute = EmployeeAssistantRouteImport.update({
+  id: '/employee/assistant',
+  path: '/employee/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmployeeDashboardRoute = EmployeeDashboardRouteImport.update({
+  id: '/employee/dashboard',
+  path: '/employee/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EmployeeExplanationRoute = EmployeeExplanationRouteImport.update({
   id: '/employee/explanation',
   path: '/employee/explanation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmployeeFinancialRoute = EmployeeFinancialRouteImport.update({
+  id: '/employee/financial',
+  path: '/employee/financial',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmployeeForecastRoute = EmployeeForecastRouteImport.update({
@@ -53,6 +72,11 @@ const HrAnalyticsRoute = HrAnalyticsRouteImport.update({
 const HrAnomaliesRoute = HrAnomaliesRouteImport.update({
   id: '/hr/anomalies',
   path: '/hr/anomalies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HrAssistantRoute = HrAssistantRouteImport.update({
+  id: '/hr/assistant',
+  path: '/hr/assistant',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HrAttendanceRoute = HrAttendanceRouteImport.update({
@@ -104,10 +128,14 @@ const HrEmployeesIdRoute = HrEmployeesIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$role/$page': typeof RolePageRoute
+  '/employee/assistant': typeof EmployeeAssistantRoute
+  '/employee/dashboard': typeof EmployeeDashboardRoute
   '/employee/explanation': typeof EmployeeExplanationRoute
+  '/employee/financial': typeof EmployeeFinancialRoute
   '/employee/forecast': typeof EmployeeForecastRoute
   '/hr/analytics': typeof HrAnalyticsRoute
   '/hr/anomalies': typeof HrAnomaliesRoute
+  '/hr/assistant': typeof HrAssistantRoute
   '/hr/attendance': typeof HrAttendanceRoute
   '/hr/leave': typeof HrLeaveRoute
   '/hr/payroll': typeof HrPayrollRoute
@@ -121,10 +149,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$role/$page': typeof RolePageRoute
+  '/employee/assistant': typeof EmployeeAssistantRoute
+  '/employee/dashboard': typeof EmployeeDashboardRoute
   '/employee/explanation': typeof EmployeeExplanationRoute
+  '/employee/financial': typeof EmployeeFinancialRoute
   '/employee/forecast': typeof EmployeeForecastRoute
   '/hr/analytics': typeof HrAnalyticsRoute
   '/hr/anomalies': typeof HrAnomaliesRoute
+  '/hr/assistant': typeof HrAssistantRoute
   '/hr/attendance': typeof HrAttendanceRoute
   '/hr/leave': typeof HrLeaveRoute
   '/hr/payroll': typeof HrPayrollRoute
@@ -139,10 +171,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$role/$page': typeof RolePageRoute
+  '/employee/assistant': typeof EmployeeAssistantRoute
+  '/employee/dashboard': typeof EmployeeDashboardRoute
   '/employee/explanation': typeof EmployeeExplanationRoute
+  '/employee/financial': typeof EmployeeFinancialRoute
   '/employee/forecast': typeof EmployeeForecastRoute
   '/hr/analytics': typeof HrAnalyticsRoute
   '/hr/anomalies': typeof HrAnomaliesRoute
+  '/hr/assistant': typeof HrAssistantRoute
   '/hr/attendance': typeof HrAttendanceRoute
   '/hr/leave': typeof HrLeaveRoute
   '/hr/payroll': typeof HrPayrollRoute
@@ -158,10 +194,14 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/$role/$page'
+    | '/employee/assistant'
+    | '/employee/dashboard'
     | '/employee/explanation'
+    | '/employee/financial'
     | '/employee/forecast'
     | '/hr/analytics'
     | '/hr/anomalies'
+    | '/hr/assistant'
     | '/hr/attendance'
     | '/hr/leave'
     | '/hr/payroll'
@@ -175,10 +215,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/$role/$page'
+    | '/employee/assistant'
+    | '/employee/dashboard'
     | '/employee/explanation'
+    | '/employee/financial'
     | '/employee/forecast'
     | '/hr/analytics'
     | '/hr/anomalies'
+    | '/hr/assistant'
     | '/hr/attendance'
     | '/hr/leave'
     | '/hr/payroll'
@@ -192,10 +236,14 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/$role/$page'
+    | '/employee/assistant'
+    | '/employee/dashboard'
     | '/employee/explanation'
+    | '/employee/financial'
     | '/employee/forecast'
     | '/hr/analytics'
     | '/hr/anomalies'
+    | '/hr/assistant'
     | '/hr/attendance'
     | '/hr/leave'
     | '/hr/payroll'
@@ -210,10 +258,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   RolePageRoute: typeof RolePageRoute
+  EmployeeAssistantRoute: typeof EmployeeAssistantRoute
+  EmployeeDashboardRoute: typeof EmployeeDashboardRoute
   EmployeeExplanationRoute: typeof EmployeeExplanationRoute
+  EmployeeFinancialRoute: typeof EmployeeFinancialRoute
   EmployeeForecastRoute: typeof EmployeeForecastRoute
   HrAnalyticsRoute: typeof HrAnalyticsRoute
   HrAnomaliesRoute: typeof HrAnomaliesRoute
+  HrAssistantRoute: typeof HrAssistantRoute
   HrAttendanceRoute: typeof HrAttendanceRoute
   HrLeaveRoute: typeof HrLeaveRoute
   HrPayrollRoute: typeof HrPayrollRoute
@@ -241,11 +293,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RolePageRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/employee/assistant': {
+      id: '/employee/assistant'
+      path: '/employee/assistant'
+      fullPath: '/employee/assistant'
+      preLoaderRoute: typeof EmployeeAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employee/dashboard': {
+      id: '/employee/dashboard'
+      path: '/employee/dashboard'
+      fullPath: '/employee/dashboard'
+      preLoaderRoute: typeof EmployeeDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/employee/explanation': {
       id: '/employee/explanation'
       path: '/employee/explanation'
       fullPath: '/employee/explanation'
       preLoaderRoute: typeof EmployeeExplanationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employee/financial': {
+      id: '/employee/financial'
+      path: '/employee/financial'
+      fullPath: '/employee/financial'
+      preLoaderRoute: typeof EmployeeFinancialRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/employee/forecast': {
@@ -267,6 +340,13 @@ declare module '@tanstack/react-router' {
       path: '/hr/anomalies'
       fullPath: '/hr/anomalies'
       preLoaderRoute: typeof HrAnomaliesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hr/assistant': {
+      id: '/hr/assistant'
+      path: '/hr/assistant'
+      fullPath: '/hr/assistant'
+      preLoaderRoute: typeof HrAssistantRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hr/attendance': {
@@ -338,10 +418,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   RolePageRoute: RolePageRoute,
+  EmployeeAssistantRoute: EmployeeAssistantRoute,
+  EmployeeDashboardRoute: EmployeeDashboardRoute,
   EmployeeExplanationRoute: EmployeeExplanationRoute,
+  EmployeeFinancialRoute: EmployeeFinancialRoute,
   EmployeeForecastRoute: EmployeeForecastRoute,
   HrAnalyticsRoute: HrAnalyticsRoute,
   HrAnomaliesRoute: HrAnomaliesRoute,
+  HrAssistantRoute: HrAssistantRoute,
   HrAttendanceRoute: HrAttendanceRoute,
   HrLeaveRoute: HrLeaveRoute,
   HrPayrollRoute: HrPayrollRoute,
