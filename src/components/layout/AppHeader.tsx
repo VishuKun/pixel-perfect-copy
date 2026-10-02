@@ -15,7 +15,7 @@ export function AppHeader({ role }: { role: Role }) {
   const me = roleMeta[role];
   const unread = notifications.filter((n) => n.unread).length;
 
-  const switchRole = (r: Role) => navigate({ to: r === "hr" ? "/" : `/${r}/dashboard` });
+  const switchRole = (r: Role) => r === "hr" ? navigate({ to: "/" }) : navigate({ to: "/$role/$page", params: { role: r, page: "dashboard" } });
 
   return (
     <header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b bg-card/95 px-4 backdrop-blur md:px-6">

@@ -35,13 +35,16 @@ export function AppSidebar({ role }: { role: Role }) {
                   const href = hrefFor(item.slug);
                   const active = pathname === href;
                   return (
-                    <SidebarMenuButton key={item.slug} asChild isActive={active} tooltip={item.title}
+                    <SidebarMenuItem key={item.slug}>
+                    <SidebarMenuButton asChild isActive={active} tooltip={item.title}
                       className="h-9 font-medium data-[active=true]:font-semibold">
-                      <Link to={href}>
+                      {href === "/" ? <Link to="/"><item.icon className="h-4 w-4" /><span>{item.title}</span></Link> :
+                      <Link to="/$role/$page" params={{ role, page: item.slug }}>
                         <item.icon className="h-4 w-4" />
                         <span>{item.title}</span>
-                      </Link>
+                      </Link>}
                     </SidebarMenuButton>
+                    </SidebarMenuItem>
                   );
                 })}
               </SidebarMenu>
@@ -61,5 +64,3 @@ export function AppSidebar({ role }: { role: Role }) {
     </Sidebar>
   );
 }
-
-export { SidebarMenuItem };
