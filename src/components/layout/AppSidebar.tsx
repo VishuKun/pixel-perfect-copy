@@ -33,7 +33,7 @@ export function AppSidebar({ role }: { role: Role }) {
               <SidebarMenu>
                 {group.items.map((item) => {
                   const href = hrefFor(item.slug);
-                  const active = pathname === href;
+                  const active = pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
                   return (
                     <SidebarMenuItem key={item.slug}>
                     <SidebarMenuButton asChild isActive={active} tooltip={item.title}

@@ -11,6 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RolePageRouteImport } from './routes/$role.$page'
+import { Route as HrAttendanceRouteImport } from './routes/hr.attendance'
+import { Route as HrLeaveRouteImport } from './routes/hr.leave'
+import { Route as HrPayrollRouteImport } from './routes/hr.payroll'
+import { Route as HrPayslipsRouteImport } from './routes/hr.payslips'
+import { Route as HrSalaryStructuresRouteImport } from './routes/hr.salary-structures'
+import { Route as HrEmployeesIndexRouteImport } from './routes/hr.employees.index'
+import { Route as HrEmployeesIdRouteImport } from './routes/hr.employees.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +29,122 @@ const RolePageRoute = RolePageRouteImport.update({
   path: '/$role/$page',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HrAttendanceRoute = HrAttendanceRouteImport.update({
+  id: '/hr/attendance',
+  path: '/hr/attendance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HrLeaveRoute = HrLeaveRouteImport.update({
+  id: '/hr/leave',
+  path: '/hr/leave',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HrPayrollRoute = HrPayrollRouteImport.update({
+  id: '/hr/payroll',
+  path: '/hr/payroll',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HrPayslipsRoute = HrPayslipsRouteImport.update({
+  id: '/hr/payslips',
+  path: '/hr/payslips',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HrSalaryStructuresRoute = HrSalaryStructuresRouteImport.update({
+  id: '/hr/salary-structures',
+  path: '/hr/salary-structures',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HrEmployeesIndexRoute = HrEmployeesIndexRouteImport.update({
+  id: '/hr/employees/',
+  path: '/hr/employees/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HrEmployeesIdRoute = HrEmployeesIdRouteImport.update({
+  id: '/hr/employees/$id',
+  path: '/hr/employees/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$role/$page': typeof RolePageRoute
+  '/hr/attendance': typeof HrAttendanceRoute
+  '/hr/leave': typeof HrLeaveRoute
+  '/hr/payroll': typeof HrPayrollRoute
+  '/hr/payslips': typeof HrPayslipsRoute
+  '/hr/salary-structures': typeof HrSalaryStructuresRoute
+  '/hr/employees/$id': typeof HrEmployeesIdRoute
+  '/hr/employees/': typeof HrEmployeesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$role/$page': typeof RolePageRoute
+  '/hr/attendance': typeof HrAttendanceRoute
+  '/hr/leave': typeof HrLeaveRoute
+  '/hr/payroll': typeof HrPayrollRoute
+  '/hr/payslips': typeof HrPayslipsRoute
+  '/hr/salary-structures': typeof HrSalaryStructuresRoute
+  '/hr/employees/$id': typeof HrEmployeesIdRoute
+  '/hr/employees': typeof HrEmployeesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$role/$page': typeof RolePageRoute
+  '/hr/attendance': typeof HrAttendanceRoute
+  '/hr/leave': typeof HrLeaveRoute
+  '/hr/payroll': typeof HrPayrollRoute
+  '/hr/payslips': typeof HrPayslipsRoute
+  '/hr/salary-structures': typeof HrSalaryStructuresRoute
+  '/hr/employees/$id': typeof HrEmployeesIdRoute
+  '/hr/employees/': typeof HrEmployeesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$role/$page'
+  fullPaths:
+    | '/'
+    | '/$role/$page'
+    | '/hr/attendance'
+    | '/hr/leave'
+    | '/hr/payroll'
+    | '/hr/payslips'
+    | '/hr/salary-structures'
+    | '/hr/employees/$id'
+    | '/hr/employees/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$role/$page'
-  id: '__root__' | '/' | '/$role/$page'
+  to:
+    | '/'
+    | '/$role/$page'
+    | '/hr/attendance'
+    | '/hr/leave'
+    | '/hr/payroll'
+    | '/hr/payslips'
+    | '/hr/salary-structures'
+    | '/hr/employees/$id'
+    | '/hr/employees'
+  id:
+    | '__root__'
+    | '/'
+    | '/$role/$page'
+    | '/hr/attendance'
+    | '/hr/leave'
+    | '/hr/payroll'
+    | '/hr/payslips'
+    | '/hr/salary-structures'
+    | '/hr/employees/$id'
+    | '/hr/employees/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   RolePageRoute: typeof RolePageRoute
+  HrAttendanceRoute: typeof HrAttendanceRoute
+  HrLeaveRoute: typeof HrLeaveRoute
+  HrPayrollRoute: typeof HrPayrollRoute
+  HrPayslipsRoute: typeof HrPayslipsRoute
+  HrSalaryStructuresRoute: typeof HrSalaryStructuresRoute
+  HrEmployeesIdRoute: typeof HrEmployeesIdRoute
+  HrEmployeesIndexRoute: typeof HrEmployeesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +163,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RolePageRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hr/attendance': {
+      id: '/hr/attendance'
+      path: '/hr/attendance'
+      fullPath: '/hr/attendance'
+      preLoaderRoute: typeof HrAttendanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hr/leave': {
+      id: '/hr/leave'
+      path: '/hr/leave'
+      fullPath: '/hr/leave'
+      preLoaderRoute: typeof HrLeaveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hr/payroll': {
+      id: '/hr/payroll'
+      path: '/hr/payroll'
+      fullPath: '/hr/payroll'
+      preLoaderRoute: typeof HrPayrollRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hr/payslips': {
+      id: '/hr/payslips'
+      path: '/hr/payslips'
+      fullPath: '/hr/payslips'
+      preLoaderRoute: typeof HrPayslipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hr/salary-structures': {
+      id: '/hr/salary-structures'
+      path: '/hr/salary-structures'
+      fullPath: '/hr/salary-structures'
+      preLoaderRoute: typeof HrSalaryStructuresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hr/employees/': {
+      id: '/hr/employees/'
+      path: '/hr/employees'
+      fullPath: '/hr/employees/'
+      preLoaderRoute: typeof HrEmployeesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hr/employees/$id': {
+      id: '/hr/employees/$id'
+      path: '/hr/employees/$id'
+      fullPath: '/hr/employees/$id'
+      preLoaderRoute: typeof HrEmployeesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   RolePageRoute: RolePageRoute,
+  HrAttendanceRoute: HrAttendanceRoute,
+  HrLeaveRoute: HrLeaveRoute,
+  HrPayrollRoute: HrPayrollRoute,
+  HrPayslipsRoute: HrPayslipsRoute,
+  HrSalaryStructuresRoute: HrSalaryStructuresRoute,
+  HrEmployeesIdRoute: HrEmployeesIdRoute,
+  HrEmployeesIndexRoute: HrEmployeesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
