@@ -12,20 +12,29 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RolePageRouteImport } from './routes/$role.$page'
 import { Route as EmployeeAssistantRouteImport } from './routes/employee.assistant'
+import { Route as EmployeeAttendanceRouteImport } from './routes/employee.attendance'
 import { Route as EmployeeDashboardRouteImport } from './routes/employee.dashboard'
 import { Route as EmployeeExplanationRouteImport } from './routes/employee.explanation'
 import { Route as EmployeeFinancialRouteImport } from './routes/employee.financial'
 import { Route as EmployeeForecastRouteImport } from './routes/employee.forecast'
+import { Route as EmployeeLeaveRouteImport } from './routes/employee.leave'
+import { Route as EmployeePayslipsRouteImport } from './routes/employee.payslips'
+import { Route as EmployeeProfileRouteImport } from './routes/employee.profile'
+import { Route as EmployeeSalaryRouteImport } from './routes/employee.salary'
 import { Route as HrAnalyticsRouteImport } from './routes/hr.analytics'
 import { Route as HrAnomaliesRouteImport } from './routes/hr.anomalies'
 import { Route as HrAssistantRouteImport } from './routes/hr.assistant'
 import { Route as HrAttendanceRouteImport } from './routes/hr.attendance'
+import { Route as HrDepartmentsRouteImport } from './routes/hr.departments'
 import { Route as HrLeaveRouteImport } from './routes/hr.leave'
 import { Route as HrPayrollRouteImport } from './routes/hr.payroll'
 import { Route as HrPayslipsRouteImport } from './routes/hr.payslips'
 import { Route as HrSalaryStructuresRouteImport } from './routes/hr.salary-structures'
 import { Route as ManagementAnalyticsRouteImport } from './routes/management.analytics'
 import { Route as ManagementAnomaliesRouteImport } from './routes/management.anomalies'
+import { Route as ManagementDashboardRouteImport } from './routes/management.dashboard'
+import { Route as ManagementDepartmentsRouteImport } from './routes/management.departments'
+import { Route as ManagementTrendsRouteImport } from './routes/management.trends'
 import { Route as HrEmployeesIndexRouteImport } from './routes/hr.employees.index'
 import { Route as HrEmployeesIdRouteImport } from './routes/hr.employees.$id'
 
@@ -42,6 +51,11 @@ const RolePageRoute = RolePageRouteImport.update({
 const EmployeeAssistantRoute = EmployeeAssistantRouteImport.update({
   id: '/employee/assistant',
   path: '/employee/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmployeeAttendanceRoute = EmployeeAttendanceRouteImport.update({
+  id: '/employee/attendance',
+  path: '/employee/attendance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmployeeDashboardRoute = EmployeeDashboardRouteImport.update({
@@ -64,6 +78,26 @@ const EmployeeForecastRoute = EmployeeForecastRouteImport.update({
   path: '/employee/forecast',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmployeeLeaveRoute = EmployeeLeaveRouteImport.update({
+  id: '/employee/leave',
+  path: '/employee/leave',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmployeePayslipsRoute = EmployeePayslipsRouteImport.update({
+  id: '/employee/payslips',
+  path: '/employee/payslips',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmployeeProfileRoute = EmployeeProfileRouteImport.update({
+  id: '/employee/profile',
+  path: '/employee/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmployeeSalaryRoute = EmployeeSalaryRouteImport.update({
+  id: '/employee/salary',
+  path: '/employee/salary',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HrAnalyticsRoute = HrAnalyticsRouteImport.update({
   id: '/hr/analytics',
   path: '/hr/analytics',
@@ -82,6 +116,11 @@ const HrAssistantRoute = HrAssistantRouteImport.update({
 const HrAttendanceRoute = HrAttendanceRouteImport.update({
   id: '/hr/attendance',
   path: '/hr/attendance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HrDepartmentsRoute = HrDepartmentsRouteImport.update({
+  id: '/hr/departments',
+  path: '/hr/departments',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HrLeaveRoute = HrLeaveRouteImport.update({
@@ -114,6 +153,21 @@ const ManagementAnomaliesRoute = ManagementAnomaliesRouteImport.update({
   path: '/management/anomalies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ManagementDashboardRoute = ManagementDashboardRouteImport.update({
+  id: '/management/dashboard',
+  path: '/management/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManagementDepartmentsRoute = ManagementDepartmentsRouteImport.update({
+  id: '/management/departments',
+  path: '/management/departments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManagementTrendsRoute = ManagementTrendsRouteImport.update({
+  id: '/management/trends',
+  path: '/management/trends',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HrEmployeesIndexRoute = HrEmployeesIndexRouteImport.update({
   id: '/hr/employees/',
   path: '/hr/employees/',
@@ -129,20 +183,29 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$role/$page': typeof RolePageRoute
   '/employee/assistant': typeof EmployeeAssistantRoute
+  '/employee/attendance': typeof EmployeeAttendanceRoute
   '/employee/dashboard': typeof EmployeeDashboardRoute
   '/employee/explanation': typeof EmployeeExplanationRoute
   '/employee/financial': typeof EmployeeFinancialRoute
   '/employee/forecast': typeof EmployeeForecastRoute
+  '/employee/leave': typeof EmployeeLeaveRoute
+  '/employee/payslips': typeof EmployeePayslipsRoute
+  '/employee/profile': typeof EmployeeProfileRoute
+  '/employee/salary': typeof EmployeeSalaryRoute
   '/hr/analytics': typeof HrAnalyticsRoute
   '/hr/anomalies': typeof HrAnomaliesRoute
   '/hr/assistant': typeof HrAssistantRoute
   '/hr/attendance': typeof HrAttendanceRoute
+  '/hr/departments': typeof HrDepartmentsRoute
   '/hr/leave': typeof HrLeaveRoute
   '/hr/payroll': typeof HrPayrollRoute
   '/hr/payslips': typeof HrPayslipsRoute
   '/hr/salary-structures': typeof HrSalaryStructuresRoute
   '/management/analytics': typeof ManagementAnalyticsRoute
   '/management/anomalies': typeof ManagementAnomaliesRoute
+  '/management/dashboard': typeof ManagementDashboardRoute
+  '/management/departments': typeof ManagementDepartmentsRoute
+  '/management/trends': typeof ManagementTrendsRoute
   '/hr/employees/$id': typeof HrEmployeesIdRoute
   '/hr/employees/': typeof HrEmployeesIndexRoute
 }
@@ -150,20 +213,29 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$role/$page': typeof RolePageRoute
   '/employee/assistant': typeof EmployeeAssistantRoute
+  '/employee/attendance': typeof EmployeeAttendanceRoute
   '/employee/dashboard': typeof EmployeeDashboardRoute
   '/employee/explanation': typeof EmployeeExplanationRoute
   '/employee/financial': typeof EmployeeFinancialRoute
   '/employee/forecast': typeof EmployeeForecastRoute
+  '/employee/leave': typeof EmployeeLeaveRoute
+  '/employee/payslips': typeof EmployeePayslipsRoute
+  '/employee/profile': typeof EmployeeProfileRoute
+  '/employee/salary': typeof EmployeeSalaryRoute
   '/hr/analytics': typeof HrAnalyticsRoute
   '/hr/anomalies': typeof HrAnomaliesRoute
   '/hr/assistant': typeof HrAssistantRoute
   '/hr/attendance': typeof HrAttendanceRoute
+  '/hr/departments': typeof HrDepartmentsRoute
   '/hr/leave': typeof HrLeaveRoute
   '/hr/payroll': typeof HrPayrollRoute
   '/hr/payslips': typeof HrPayslipsRoute
   '/hr/salary-structures': typeof HrSalaryStructuresRoute
   '/management/analytics': typeof ManagementAnalyticsRoute
   '/management/anomalies': typeof ManagementAnomaliesRoute
+  '/management/dashboard': typeof ManagementDashboardRoute
+  '/management/departments': typeof ManagementDepartmentsRoute
+  '/management/trends': typeof ManagementTrendsRoute
   '/hr/employees/$id': typeof HrEmployeesIdRoute
   '/hr/employees': typeof HrEmployeesIndexRoute
 }
@@ -172,20 +244,29 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$role/$page': typeof RolePageRoute
   '/employee/assistant': typeof EmployeeAssistantRoute
+  '/employee/attendance': typeof EmployeeAttendanceRoute
   '/employee/dashboard': typeof EmployeeDashboardRoute
   '/employee/explanation': typeof EmployeeExplanationRoute
   '/employee/financial': typeof EmployeeFinancialRoute
   '/employee/forecast': typeof EmployeeForecastRoute
+  '/employee/leave': typeof EmployeeLeaveRoute
+  '/employee/payslips': typeof EmployeePayslipsRoute
+  '/employee/profile': typeof EmployeeProfileRoute
+  '/employee/salary': typeof EmployeeSalaryRoute
   '/hr/analytics': typeof HrAnalyticsRoute
   '/hr/anomalies': typeof HrAnomaliesRoute
   '/hr/assistant': typeof HrAssistantRoute
   '/hr/attendance': typeof HrAttendanceRoute
+  '/hr/departments': typeof HrDepartmentsRoute
   '/hr/leave': typeof HrLeaveRoute
   '/hr/payroll': typeof HrPayrollRoute
   '/hr/payslips': typeof HrPayslipsRoute
   '/hr/salary-structures': typeof HrSalaryStructuresRoute
   '/management/analytics': typeof ManagementAnalyticsRoute
   '/management/anomalies': typeof ManagementAnomaliesRoute
+  '/management/dashboard': typeof ManagementDashboardRoute
+  '/management/departments': typeof ManagementDepartmentsRoute
+  '/management/trends': typeof ManagementTrendsRoute
   '/hr/employees/$id': typeof HrEmployeesIdRoute
   '/hr/employees/': typeof HrEmployeesIndexRoute
 }
@@ -195,20 +276,29 @@ export interface FileRouteTypes {
     | '/'
     | '/$role/$page'
     | '/employee/assistant'
+    | '/employee/attendance'
     | '/employee/dashboard'
     | '/employee/explanation'
     | '/employee/financial'
     | '/employee/forecast'
+    | '/employee/leave'
+    | '/employee/payslips'
+    | '/employee/profile'
+    | '/employee/salary'
     | '/hr/analytics'
     | '/hr/anomalies'
     | '/hr/assistant'
     | '/hr/attendance'
+    | '/hr/departments'
     | '/hr/leave'
     | '/hr/payroll'
     | '/hr/payslips'
     | '/hr/salary-structures'
     | '/management/analytics'
     | '/management/anomalies'
+    | '/management/dashboard'
+    | '/management/departments'
+    | '/management/trends'
     | '/hr/employees/$id'
     | '/hr/employees/'
   fileRoutesByTo: FileRoutesByTo
@@ -216,20 +306,29 @@ export interface FileRouteTypes {
     | '/'
     | '/$role/$page'
     | '/employee/assistant'
+    | '/employee/attendance'
     | '/employee/dashboard'
     | '/employee/explanation'
     | '/employee/financial'
     | '/employee/forecast'
+    | '/employee/leave'
+    | '/employee/payslips'
+    | '/employee/profile'
+    | '/employee/salary'
     | '/hr/analytics'
     | '/hr/anomalies'
     | '/hr/assistant'
     | '/hr/attendance'
+    | '/hr/departments'
     | '/hr/leave'
     | '/hr/payroll'
     | '/hr/payslips'
     | '/hr/salary-structures'
     | '/management/analytics'
     | '/management/anomalies'
+    | '/management/dashboard'
+    | '/management/departments'
+    | '/management/trends'
     | '/hr/employees/$id'
     | '/hr/employees'
   id:
@@ -237,20 +336,29 @@ export interface FileRouteTypes {
     | '/'
     | '/$role/$page'
     | '/employee/assistant'
+    | '/employee/attendance'
     | '/employee/dashboard'
     | '/employee/explanation'
     | '/employee/financial'
     | '/employee/forecast'
+    | '/employee/leave'
+    | '/employee/payslips'
+    | '/employee/profile'
+    | '/employee/salary'
     | '/hr/analytics'
     | '/hr/anomalies'
     | '/hr/assistant'
     | '/hr/attendance'
+    | '/hr/departments'
     | '/hr/leave'
     | '/hr/payroll'
     | '/hr/payslips'
     | '/hr/salary-structures'
     | '/management/analytics'
     | '/management/anomalies'
+    | '/management/dashboard'
+    | '/management/departments'
+    | '/management/trends'
     | '/hr/employees/$id'
     | '/hr/employees/'
   fileRoutesById: FileRoutesById
@@ -259,20 +367,29 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   RolePageRoute: typeof RolePageRoute
   EmployeeAssistantRoute: typeof EmployeeAssistantRoute
+  EmployeeAttendanceRoute: typeof EmployeeAttendanceRoute
   EmployeeDashboardRoute: typeof EmployeeDashboardRoute
   EmployeeExplanationRoute: typeof EmployeeExplanationRoute
   EmployeeFinancialRoute: typeof EmployeeFinancialRoute
   EmployeeForecastRoute: typeof EmployeeForecastRoute
+  EmployeeLeaveRoute: typeof EmployeeLeaveRoute
+  EmployeePayslipsRoute: typeof EmployeePayslipsRoute
+  EmployeeProfileRoute: typeof EmployeeProfileRoute
+  EmployeeSalaryRoute: typeof EmployeeSalaryRoute
   HrAnalyticsRoute: typeof HrAnalyticsRoute
   HrAnomaliesRoute: typeof HrAnomaliesRoute
   HrAssistantRoute: typeof HrAssistantRoute
   HrAttendanceRoute: typeof HrAttendanceRoute
+  HrDepartmentsRoute: typeof HrDepartmentsRoute
   HrLeaveRoute: typeof HrLeaveRoute
   HrPayrollRoute: typeof HrPayrollRoute
   HrPayslipsRoute: typeof HrPayslipsRoute
   HrSalaryStructuresRoute: typeof HrSalaryStructuresRoute
   ManagementAnalyticsRoute: typeof ManagementAnalyticsRoute
   ManagementAnomaliesRoute: typeof ManagementAnomaliesRoute
+  ManagementDashboardRoute: typeof ManagementDashboardRoute
+  ManagementDepartmentsRoute: typeof ManagementDepartmentsRoute
+  ManagementTrendsRoute: typeof ManagementTrendsRoute
   HrEmployeesIdRoute: typeof HrEmployeesIdRoute
   HrEmployeesIndexRoute: typeof HrEmployeesIndexRoute
 }
@@ -298,6 +415,13 @@ declare module '@tanstack/react-router' {
       path: '/employee/assistant'
       fullPath: '/employee/assistant'
       preLoaderRoute: typeof EmployeeAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employee/attendance': {
+      id: '/employee/attendance'
+      path: '/employee/attendance'
+      fullPath: '/employee/attendance'
+      preLoaderRoute: typeof EmployeeAttendanceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/employee/dashboard': {
@@ -328,6 +452,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmployeeForecastRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/employee/leave': {
+      id: '/employee/leave'
+      path: '/employee/leave'
+      fullPath: '/employee/leave'
+      preLoaderRoute: typeof EmployeeLeaveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employee/payslips': {
+      id: '/employee/payslips'
+      path: '/employee/payslips'
+      fullPath: '/employee/payslips'
+      preLoaderRoute: typeof EmployeePayslipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employee/profile': {
+      id: '/employee/profile'
+      path: '/employee/profile'
+      fullPath: '/employee/profile'
+      preLoaderRoute: typeof EmployeeProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employee/salary': {
+      id: '/employee/salary'
+      path: '/employee/salary'
+      fullPath: '/employee/salary'
+      preLoaderRoute: typeof EmployeeSalaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hr/analytics': {
       id: '/hr/analytics'
       path: '/hr/analytics'
@@ -354,6 +506,13 @@ declare module '@tanstack/react-router' {
       path: '/hr/attendance'
       fullPath: '/hr/attendance'
       preLoaderRoute: typeof HrAttendanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hr/departments': {
+      id: '/hr/departments'
+      path: '/hr/departments'
+      fullPath: '/hr/departments'
+      preLoaderRoute: typeof HrDepartmentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hr/leave': {
@@ -398,6 +557,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ManagementAnomaliesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/management/dashboard': {
+      id: '/management/dashboard'
+      path: '/management/dashboard'
+      fullPath: '/management/dashboard'
+      preLoaderRoute: typeof ManagementDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/management/departments': {
+      id: '/management/departments'
+      path: '/management/departments'
+      fullPath: '/management/departments'
+      preLoaderRoute: typeof ManagementDepartmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/management/trends': {
+      id: '/management/trends'
+      path: '/management/trends'
+      fullPath: '/management/trends'
+      preLoaderRoute: typeof ManagementTrendsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hr/employees/': {
       id: '/hr/employees/'
       path: '/hr/employees'
@@ -419,20 +599,29 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   RolePageRoute: RolePageRoute,
   EmployeeAssistantRoute: EmployeeAssistantRoute,
+  EmployeeAttendanceRoute: EmployeeAttendanceRoute,
   EmployeeDashboardRoute: EmployeeDashboardRoute,
   EmployeeExplanationRoute: EmployeeExplanationRoute,
   EmployeeFinancialRoute: EmployeeFinancialRoute,
   EmployeeForecastRoute: EmployeeForecastRoute,
+  EmployeeLeaveRoute: EmployeeLeaveRoute,
+  EmployeePayslipsRoute: EmployeePayslipsRoute,
+  EmployeeProfileRoute: EmployeeProfileRoute,
+  EmployeeSalaryRoute: EmployeeSalaryRoute,
   HrAnalyticsRoute: HrAnalyticsRoute,
   HrAnomaliesRoute: HrAnomaliesRoute,
   HrAssistantRoute: HrAssistantRoute,
   HrAttendanceRoute: HrAttendanceRoute,
+  HrDepartmentsRoute: HrDepartmentsRoute,
   HrLeaveRoute: HrLeaveRoute,
   HrPayrollRoute: HrPayrollRoute,
   HrPayslipsRoute: HrPayslipsRoute,
   HrSalaryStructuresRoute: HrSalaryStructuresRoute,
   ManagementAnalyticsRoute: ManagementAnalyticsRoute,
   ManagementAnomaliesRoute: ManagementAnomaliesRoute,
+  ManagementDashboardRoute: ManagementDashboardRoute,
+  ManagementDepartmentsRoute: ManagementDepartmentsRoute,
+  ManagementTrendsRoute: ManagementTrendsRoute,
   HrEmployeesIdRoute: HrEmployeesIdRoute,
   HrEmployeesIndexRoute: HrEmployeesIndexRoute,
 }
