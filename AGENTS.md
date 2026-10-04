@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Every sidebar slug has a dedicated route file; `$role.$page` is only a not-found fallback. Why: no menu link should open a placeholder.
+- Shared employee/department page bodies live in src/components/pages/RolePages.tsx. Why: reuse across roles.
