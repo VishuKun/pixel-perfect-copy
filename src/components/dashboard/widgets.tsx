@@ -8,7 +8,7 @@ import { activity, alerts, anomalies, departmentPayroll, payrollTrend, processin
 export function Panel({ title, subtitle, action, children, className }: { title: string; subtitle?: string; action?: ReactNode; children: ReactNode; className?: string }) {
   return (
     <section className={cn("rounded-xl border bg-card", className)}>
-      <div className="flex items-start justify-between gap-4 px-5 pt-5">
+      <div className="flex flex-wrap items-start justify-between gap-3 px-5 pt-5">
         <div className="min-w-0">
           <h2 className="text-[15px] font-semibold">{title}</h2>
           {subtitle && <p className="mt-0.5 text-xs text-muted-foreground">{subtitle}</p>}
