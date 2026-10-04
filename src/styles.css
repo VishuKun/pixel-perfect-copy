@@ -109,3 +109,6 @@
 @utility tabular {
   font-variant-numeric: tabular-nums;
 }
+
+/* Let grid/flex children shrink on narrow screens so cards never spill off-screen. */
+main .grid > *, main section { min-width: 0; }
