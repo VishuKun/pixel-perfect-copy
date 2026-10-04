@@ -160,12 +160,12 @@ export function EmployeeLeave() {
   const [open, setOpen] = useState(false);
   const [cancelId, setCancelId] = useState<string | null>(null);
   const [form, setForm] = useState({ type: "", from: "", to: "", reason: "" });
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<Partial<Record<"type" | "from" | "to" | "reason", string>>>({});
   const balance = leaveBalanceFor(ME_INDEX);
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    const err: Record<string, string> = {};
+    const err: Partial<Record<"type" | "from" | "to" | "reason", string>> = {};
     if (!form.type) err.type = "Select a leave type.";
     if (!form.from) err.from = "Choose a start date.";
     if (!form.to) err.to = "Choose an end date.";
@@ -181,7 +181,7 @@ export function EmployeeLeave() {
     toast.success("Leave request submitted", { description: "Your manager will review it shortly." });
   };
 
-  const fieldErr = (k: string) => errors[k] && <p id={`${k}-err`} className="text-xs text-destructive">{errors[k]}</p>;
+  const fieldErr = (k: "type" | "from" | "to" | "reason") => errors[k] && <p id={`${k}-err`} className="text-xs text-destructive">{errors[k]}</p>;
 
   return (
     <div className="space-y-6">
